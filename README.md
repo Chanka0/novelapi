@@ -16,7 +16,7 @@ const auth = 'authToken';
 
 const NovelAI = new Client(auth);
 NovelAI.APIStatus().then(e => {console.log(e.status)});
-NovelAI.generateText("Hello world! It's me, an AI!").then(e => {
+NovelAI.Generator.Generate("Hello world! It's me, an AI!").then(e => {
     console.log(e)
 });
 ```
