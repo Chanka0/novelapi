@@ -7,47 +7,76 @@ export class User
     {
         this.auth = auth;
     }
-
-    async Login()
+    /**
+     * 
+     * @param {String} accessKey 64 character string.
+     * @returns JSON: authToken on successful login
+     */
+    async Login(accessKey)
     {
-        return await ULogin(this.auth)
+        return await ULogin(this.auth, accessKey)
     }
+    /**
+     * Gets user account information.
+     * @returns JSON: User Account Information
+     */
     async GetUser()
     {
         return await UGetUser(this.auth)
     }
+    /**
+     * Gets priority info.
+     * @returns JSON: User Priority Information
+     */
     async GetPriority()
     {
         return await UPriority(this.auth)
     }
+    /**
+     * Gets subscription info for account.
+     * @returns JSON: User Subscription Information
+     */
     async GetSubscription()
     {
         return await UUserSubscription(this.auth)
     }
+    /**
+     * Unsure of use.
+     * @returns JSON: Keystore, Index
+     */
     async GetKeystore()
     {
         return await UGetKeystore(this.auth)
     }
+    /**
+     * Changes the keystore and the index. Unsure of use.
+     * @param {String} keystore
+     * @param {Number} index
+     * @returns HTTPS Status 200
+    */
     async SetKeystore(keystore, index)
     {
         return await UPutKeystore(this.auth, keystore, index)
     }
+    /**
+     * Retrieves user client settings.
+     * @returns JSON: User Settings
+     */
     async GetClientSettings()
     {
         return await UGetSettings(this.auth)
     }
+    /**
+     * This is a weird one. Doesn't accept JSON body, just a single string. ¯\_(ツ)_/¯
+     * @param {String} settings 
+     * @returns HTTPS Status 200
+     */
     async SetClientSettings(settings)
     {
         return await UPutSettings(this.auth, settings)
     }
 }
 
-
-/**
- * 
- * @param {String} accessKey 64 character string.
- * @returns JSON: authToken on successful login
- */
 async function ULogin(authToken, accessKey)
 {
     const response = await fetch('https://api.novelai.net/user/login', 
@@ -58,11 +87,7 @@ async function ULogin(authToken, accessKey)
     });
     return await response.json();
 }
-/**
- * 
- * @param {String} authToken 
- * @returns JSON: User Account Information
- */
+
 async function UGetUser(authToken)
 {
     const response = await fetch('https://api.novelai.net/user/information', 
@@ -72,11 +97,7 @@ async function UGetUser(authToken)
     });
     return await response.json();
 }
-/**
- * 
- * @param {String} authToken 
- * @returns JSON: User Priority Info
- */
+
 async function UPriority(authToken)
 {
     const response = await fetch('https://api.novelai.net/user/priority', 
@@ -86,11 +107,7 @@ async function UPriority(authToken)
     });
     return await response.json();
 }
-/**
- * Returns subscription info.
- * @param {String} authToken 
- * @returns JSON: User Subscription Info
- */
+
 async function UUserSubscription(authToken)
 {
     const response = await fetch('https://api.novelai.net/user/subscription', 
@@ -100,11 +117,7 @@ async function UUserSubscription(authToken)
     });
     return await response.json();
 }
-/**
- * Retrieves user keystore. Much larger than an authkey, unsure of use.
- * @param {String} authToken 
- * @returns JSON: User Keystore.
- */
+
 async function UGetKeystore(authToken)
 {
     const response = await fetch('https://api.novelai.net/user/keystore', 
@@ -115,13 +128,6 @@ async function UGetKeystore(authToken)
     return await response.json();
 }
 
-/**
- * Changes the keystore and the index. Unsure of use.
- * @param {String} authToken 
- * @param {String} keystore
- * @param {Number} index
- * @returns HTTPS Status 200
-*/
 async function UPutKeystore(authToken, keystore, index)
 {
      const response = await fetch('https://api.novelai.net/user/keystore', 
@@ -133,11 +139,6 @@ async function UPutKeystore(authToken, keystore, index)
      return await response;
 }
 
-/**
- * Retrieves user client settings.
- * @param {String} authToken 
- * @returns JSON: User Settings
- */
 async function UGetSettings(authToken)
 {
     const response = await fetch('https://api.novelai.net/user/clientsettings', 
@@ -148,12 +149,6 @@ async function UGetSettings(authToken)
     return await response.json();
 }
 
-/**
- * This is a weird one. Doesn't accept JSON body, just a single string. ¯\_(ツ)_/¯
- * @param {String} authToken 
- * @param {String} settings 
- * @returns HTTPS Status 200
- */
 async function UPutSettings(authToken, settings)
 {
     const response = await fetch('https://api.novelai.net/user/clientsettings', 

@@ -27,3 +27,5 @@ In-module documentation of return formats.
 Generate Text Stream support.
 
 Optimize the class/function structure.
+
+Input Sanitization

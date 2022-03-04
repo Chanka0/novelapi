@@ -1,6 +1,6 @@
 {
   "name": "novelapi",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "NovelAI API",
   "main": "./src/Client.js",
   "type": "module",
@@ -11,7 +11,9 @@
   "keywords": [
     "novelapi",
     "javascript",
-    "nodejs"
+    "nodejs",
+    "novelai",
+    "API"
   ],
   "author": "Chanka",
   "license": "ISC",
