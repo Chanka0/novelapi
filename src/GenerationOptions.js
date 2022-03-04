@@ -1,0 +1,15 @@
+export const defaultGeneration = {
+    "use_string": true,
+    "repetition_penalty": 2.975,
+    "repetition_penalty_frequency": 0,
+    "repetition_penalty_presence": 0,
+    "repetition_penalty_range": 2048,
+    "repetition_penalty_slope": 0.09,
+    "temperature": 0.63,
+    "top_k": 0,
+    "top_p": 0.975,
+    "tail_free_sampling": 0.975,
+    "min_length": 1,
+    "max_length": 160,
+    "generate_until_sentence": true,
+}
