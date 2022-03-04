@@ -6,7 +6,7 @@ A [NovelAI](https://novelai.net/) API written in Javascript and usable as a Node
 
 ## Configuration
 The only configuration required to use the module is finding the authorization token for NovelAI. 
-On the NovelAI website with a logged in account, go to `Inspect Element > Application > Storage > Local Storage >https://novelai.net/`. There will be a list of keys, one of them labeled `session`. It will have a 205 character value called `auth_token`.
+On the NovelAI website with a logged in account, go to `Inspect Element > Application > Storage > Local Storage > https://novelai.net/`. There will be a list of keys, one of them labeled `session`. It will have a 205 character value called `auth_token`.
 
 ## Usage Example
 ```
