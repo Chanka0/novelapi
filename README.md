@@ -22,8 +22,6 @@ NovelAI.Generator.Generate("Hello world! It's me, an AI!").then(e => {
 ```
 
 ## TODO
-In-module documentation of return formats.
-
 Generate Text Stream support.
 
 Optimize the class/function structure.

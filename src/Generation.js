@@ -13,8 +13,8 @@ export class Generator
     /**
      * What this module is built for. AI text generation.
      * @param {String} input Input text for generation. Maximum length is 14000 characters.
-     * @param {String} model Model for text generation. Available models are: [ 2.7B, 6B-v4, euterpe-v0, euterpe-v2, genji-python-6b, genji-jp-6b, genji-jp-6b-v2, pile-test ]
-     * @param {*} parameters Generation parameters. Defaults are based on Genisis preset, but can be adjusted or fed through here.
+     * @param {String} model Model for text generation. Available models are: [ 2.7B, 6B-v4, euterpe-v2, genji-python-6b, genji-jp-6b, genji-jp-6b-v2, krake-v1 ]
+     * @param {*} parameters Generation parameters. Defaults are based on Genisis preset, but can be adjusted or fed through here. Default presets based on Genisis, additional options can be found in the parameters section of AiGenerateRequest: https://api.novelai.net/docs/static/index.html#/
      * @returns JSON: Generated Text
      */
     async Generate(input, model = this.defaultModel, parameters = this.generationOptions)
@@ -33,7 +33,6 @@ export class Generator
     }
 }
 
-//NovelAI uses Genisis preset by default. Basic parameters have been added for convenience, anything beyond can found in the parameters section of AiGenerateRequest: https://api.novelai.net/docs/static/index.html#/
 const defaultGeneration = {
     "use_string": true,
     "repetition_penalty": 2.975,
@@ -49,7 +48,7 @@ const defaultGeneration = {
     "min_length": 1,
     //Maximum: 2048
     "max_length": 160,
-    "generate_until_sentence": true,
+    "generate_until_sentence": true
 }
 
 export async function GGenerateText(auth, input, model, parameters)
