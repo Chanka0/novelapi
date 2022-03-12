@@ -1,6 +1,6 @@
 {
   "name": "novelapi",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "NovelAI API",
   "main": "./src/Client.js",
   "type": "module",
